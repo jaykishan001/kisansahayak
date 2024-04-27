@@ -4,8 +4,6 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login as storeLogin } from "../store/authSlice";
-import Logo from "./Logo";
-import Button from "./Button";
 
 const SignUp = () => {
   const dispatch = useDispatch();
@@ -34,9 +32,7 @@ const SignUp = () => {
         className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}
       >
         <div className="mb-2 flex justify-center">
-          <span className="inline-block w-full max-w-[100px]">
-            <Logo width="100%" />
-          </span>
+          <span className="inline-block w-full max-w-[100px]"></span>
         </div>
         <h2 className="text-center text-2xl font-bold leading-tight">
           Sign up to create account
@@ -85,9 +81,9 @@ const SignUp = () => {
                 required: true,
               })}
             />
-            <Button type="submit" className="w-8/12">
+            <button type="submit" className="w-8/12">
               Create Account
-            </Button>
+            </button>
           </div>
         </form>
       </div>
