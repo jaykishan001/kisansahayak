@@ -1,24 +1,25 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
-import CropSeasons from "../jsonData/CropSeason.json"
+import { options } from '../jsonData/CropSeason'
+
 
 function FarmingSeason() {
     
     const [farmingSeason, setFarmingSeason] = useState()
     
-    useEffect(()=> {
-        const cropData = JSON.parse(CropSeasons);
-        console.log(cropData)
-    }, [])
+    
+    
    
 
   return (
     <div>
         <select onChange={(e)=> setFarmingSeason(e.target.value) }>
-            {cropData.map((data)=> {
+            {options.map((data)=> {
                 <option value={data}>
                     {data}
             </option>
+            console.log(data);
+
             })}
         </select>
     </div>
