@@ -8,8 +8,6 @@ import "./App.css";
 import { login } from "./store/authSlice";
 import FarmingSeason from "./components/FarmingSeason";
 import WeatherComp from "./components/Weathercomp";
-import { Outlet } from "react-router-dom";
-import Login from "./components/Login";
 // import { Outlet } from 'react-router-dom'
 
 function App() {
@@ -33,8 +31,13 @@ function App() {
   return !loader ? (
     <div className="">
       <Header />
-      <main className="">{<Outlet />}</main>
-      <Footer className="" />
+
+      <main>{/* <Outlet /> */}</main>
+      <Footer />
+      <main>
+        <WeatherComp />
+      </main>
+      <Footer />
     </div>
   ) : null;
 }
