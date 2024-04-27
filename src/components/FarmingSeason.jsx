@@ -7,10 +7,6 @@ function FarmingSeason() {
     
     const [farmingSeason, setFarmingSeason] = useState()
     
-    
-    
-   
-
   return (
     <div>
         <select onChange={(e)=> setFarmingSeason(e.target.value) }>
