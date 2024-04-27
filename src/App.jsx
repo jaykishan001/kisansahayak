@@ -7,6 +7,15 @@ import authService from "./appwrite/auth";
 import { useDispatch } from "react-redux";
 import { login } from "./store/authSlice";
 import Postform from "./components/Postform";
+import { useEffect, useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
+import { Footer, Header } from './components'
+import authService from './appwrite/auth'
+import { useDispatch } from 'react-redux'
+import { login } from './store/authSlice'
+import FarmingSeason from './components/FarmingSeason'
 // import { Outlet } from 'react-router-dom'
 
 function App() {
@@ -33,6 +42,10 @@ function App() {
       <Postform />
       <main>{/* <Outlet /> */}</main>
       <Footer />
+      <main>
+        <FarmingSeason />
+      </main>
+      <Footer/>
     </div>
   ) : null;
 }
