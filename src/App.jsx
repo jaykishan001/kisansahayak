@@ -1,9 +1,13 @@
+import { useEffect, useState } from "react";
+import "./App.css";
+import { Footer, Header } from "./components";
+import authService from "./appwrite/auth";
+import { useDispatch } from "react-redux";
 import Postform from "./components/Postform";
-import { Footer, Header } from './components'
-import authService from './appwrite/auth'
-import { useDispatch } from 'react-redux'
-import { login } from './store/authSlice'
-import FarmingSeason from './components/FarmingSeason'
+import "./App.css";
+import { login } from "./store/authSlice";
+import FarmingSeason from "./components/FarmingSeason";
+import WeatherComp from "./components/Weathercomp";
 // import { Outlet } from 'react-router-dom'
 
 function App() {
@@ -27,13 +31,13 @@ function App() {
   return !loader ? (
     <div className="">
       <Header />
-      <Postform />
-      <main>{
-      /* <Outlet /> */}
-        <FarmingSeason />
+
+      <main>{/* <Outlet /> */}</main>
+      <Footer />
+      <main>
+        <WeatherComp />
       </main>
       <Footer />
-      
     </div>
   ) : null;
 }
