@@ -1,16 +1,4 @@
-import { useEffect, useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
-import { Footer, Header } from "./components";
-import authService from "./appwrite/auth";
-import { useDispatch } from "react-redux";
-import { login } from "./store/authSlice";
 import Postform from "./components/Postform";
-import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 import { Footer, Header } from './components'
 import authService from './appwrite/auth'
 import { useDispatch } from 'react-redux'
@@ -40,12 +28,12 @@ function App() {
     <div className="">
       <Header />
       <Postform />
-      <main>{/* <Outlet /> */}</main>
-      <Footer />
-      <main>
+      <main>{
+      /* <Outlet /> */}
         <FarmingSeason />
       </main>
-      <Footer/>
+      <Footer />
+      
     </div>
   ) : null;
 }
