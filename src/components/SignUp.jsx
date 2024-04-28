@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login as storeLogin } from "../store/authSlice";
+import service from "../appwrite/config";
 
 const SignUp = () => {
   const dispatch = useDispatch();
@@ -25,6 +26,11 @@ const SignUp = () => {
       setError(error.message);
     }
   };
+
+  const registerWithGoogle = async() => {
+        authService.signUpWithGoogle()
+        .then
+  }
 
   return (
     <div className="flex items-center justify-center">
@@ -51,7 +57,7 @@ const SignUp = () => {
         <form onSubmit={handleSubmit(createAccount)} className="mt-8">
           <div className="space-y-5  flex flex-col items-center justify-center">
             <input
-              className="w-8/12"
+              className="w-8/12 p-2"
               label="Full Name: "
               placeholder="Enter your full name"
               {...register("name", {
@@ -59,7 +65,7 @@ const SignUp = () => {
               })}
             />
             <input
-              className="w-8/12"
+              className="w-8/12 p-2"
               label="Email: "
               placeholder="Enter your email"
               type="email"
@@ -73,7 +79,7 @@ const SignUp = () => {
               })}
             />
             <input
-              className="w-8/12"
+              className="w-8/12 p-2"
               label="Password: "
               type="password"
               placeholder="Enter your password"
@@ -81,9 +87,10 @@ const SignUp = () => {
                 required: true,
               })}
             />
-            <button type="submit" className="w-8/12">
+            <button type="submit" className="w-8/12 p-2 border border-black rounded-lg bg-orange-400 hover:bg-orange-600">
               Create Account
             </button>
+            <button onClick={registerWithGoogle}>Sign up by a google</button>
           </div>
         </form>
       </div>

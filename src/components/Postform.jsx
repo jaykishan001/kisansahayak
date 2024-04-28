@@ -80,14 +80,14 @@ function Postform({ card }) {
           type="date"
           placeholder=""
           className="mb-4"
-          {...register("bought", { required: true })}
+          {...register("bought", { required: false })}
         />
         <Input
           label="Date Expired"
           type="date"
           placeholder=""
           className="mb-4"
-          {...register("expiry", { required: true })}
+          {...register("expiry", { required: false })}
         />
         <button type="submit" className="w-full">
           {card ? "Update" : "Submit"}

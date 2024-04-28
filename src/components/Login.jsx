@@ -14,7 +14,7 @@ const Login = () => {
     // console.log(data);
     setError("");
     try {
-      const session = await authService.Login(data);
+      const session = await authService.login(data);
 
       if (session) {
         const userData = await authService.getCurrentuser();
@@ -52,7 +52,7 @@ const Login = () => {
         <form onSubmit={handleSubmit(login)} className="mt-8 ">
           <div className="space-y-5 flex flex-col items-center justify-center ">
             <input
-              className="w-8/12"
+              className="w-8/12 p-2"
               type="email"
               placeholder="Enter your email"
               label="Email: "
@@ -66,7 +66,7 @@ const Login = () => {
             />
 
             <input
-              className="w-8/12"
+              className="w-8/12 p-2"
               label="Password: "
               type="password"
               placeholder="Enter your password"
@@ -74,7 +74,7 @@ const Login = () => {
                 required: true,
               })}
             />
-            <button type="submit" className="w-8/12">
+            <button type="submit" className="w-8/12 border border-black p-2  bg-orange-400 rounded-lg hover:bg-orange-600">
               Sign in
             </button>
           </div>
