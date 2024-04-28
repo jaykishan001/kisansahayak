@@ -1,7 +1,7 @@
 import React from 'react'
 import service from '../appwrite/config'
 
-function PostCard({$id , product, expirty, bought, featuredImage, cartegory, quantity, }) {
+function PostCard({$id , product, expirty, bought, featuredImage, cartegory, quantity }) {
   return (
     <div>
         <div className="flex justify-between">
