@@ -5,7 +5,8 @@ import authService from "./appwrite/auth";
 import { useDispatch } from "react-redux";
 import "./App.css";
 import { login } from "./store/authSlice";
-import Season from "./components/pages/Season";
+import Season from "../src/components/pages/Season";
+import { Outlet } from "react-router-dom";
 
 function App() {
   const [loader, setLoader] = useState(true);

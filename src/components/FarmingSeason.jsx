@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const FarmingSeason = () => {
+const FarmingSeason = ({options}) => {
   const [selectedState, setSelectedState] = useState(null);
 
   const handleStateChange = (event) => {
