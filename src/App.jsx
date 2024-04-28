@@ -11,7 +11,6 @@ import { Outlet } from "react-router-dom";
 import Postform from "./components/Postform";
 import Post from "./components/pages/Post";
 
-
 function App() {
   const [loader, setLoader] = useState(true);
   const dispatch = useDispatch();
@@ -34,12 +33,7 @@ function App() {
     <div className="">
       <Header />
 
-<<<<<<< HEAD
-      <main>{<Post />}</main>
-=======
       <main>{<Outlet />}</main>
-      <Season />
->>>>>>> 7720bb57b4374a37f10c7dbec6941eebc911ff35
 
       <Footer />
     </div>
