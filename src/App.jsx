@@ -34,6 +34,9 @@ function App() {
       <Header />
 
       <main>{<Outlet />}</main>
+      <main>{<Post />}</main>
+      <main>{<Outlet />}</main>
+      <Season />
 
       <Footer />
     </div>
