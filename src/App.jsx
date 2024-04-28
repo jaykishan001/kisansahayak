@@ -3,11 +3,8 @@ import "./App.css";
 import { Footer, Header } from "./components";
 import authService from "./appwrite/auth";
 import { useDispatch } from "react-redux";
-import Postform from "./components/Postform";
 import "./App.css";
 import { login } from "./store/authSlice";
-import FarmingSeason from "./components/FarmingSeason";
-import WeatherComp from "./components/Weathercomp";
 import { Outlet } from "react-router-dom";
 // import { Outlet } from 'react-router-dom'
 

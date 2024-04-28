@@ -17,7 +17,7 @@ const Login = () => {
       const session = await authService.login(data);
 
       if (session) {
-        const userData = await authService.getCurrentuser();
+        const userData = await authService.getCurrentUser();
         if (userData) {
           dispatch(storeLogin(userData));
           navigate("/");
@@ -74,7 +74,10 @@ const Login = () => {
                 required: true,
               })}
             />
-            <button type="submit" className="w-8/12 border border-black p-2  bg-orange-400 rounded-lg hover:bg-orange-600">
+            <button
+              type="submit"
+              className="w-8/12 border border-black p-2  bg-orange-400 rounded-lg hover:bg-orange-600"
+            >
               Sign in
             </button>
           </div>

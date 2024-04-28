@@ -16,7 +16,7 @@ const SignUp = () => {
     try {
       const session = await authService.createAccount(data);
       if (session) {
-        const userData = authService.getCurrentuser();
+        const userData = authService.getCurrentUser();
         if (userData) {
           dispatch(storeLogin(userData));
           navigate("/");
@@ -27,10 +27,9 @@ const SignUp = () => {
     }
   };
 
-  const registerWithGoogle = async() => {
-        authService.signUpWithGoogle()
-        .then
-  }
+  const registerWithGoogle = async () => {
+    authService.signUpWithGoogle().then;
+  };
 
   return (
     <div className="flex items-center justify-center">
@@ -87,7 +86,10 @@ const SignUp = () => {
                 required: true,
               })}
             />
-            <button type="submit" className="w-8/12 p-2 border border-black rounded-lg bg-orange-400 hover:bg-orange-600">
+            <button
+              type="submit"
+              className="w-8/12 p-2 border border-black rounded-lg bg-orange-400 hover:bg-orange-600"
+            >
               Create Account
             </button>
             <button onClick={registerWithGoogle}>Sign up by a google</button>
