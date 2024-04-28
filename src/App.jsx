@@ -5,15 +5,12 @@ import authService from "./appwrite/auth";
 import { useDispatch } from "react-redux";
 import "./App.css";
 import { login } from "./store/authSlice";
-<<<<<<< HEAD
+
 import Season from "./components/pages/Season";
 import { Outlet } from "react-router-dom";
 import Postform from "./components/Postform";
 import Post from "./components/pages/Post";
-=======
-import Season from "../src/components/pages/Season";
-import { Outlet } from "react-router-dom";
->>>>>>> 7720bb57b4374a37f10c7dbec6941eebc911ff35
+
 
 function App() {
   const [loader, setLoader] = useState(true);
