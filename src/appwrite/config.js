@@ -84,7 +84,7 @@ class Service {
       console.log("appwrite error delete Card::", error);
     }
   }
-  async getCard({ slug }) {
+  async getCard(slug) {
     try {
       return await this.database.getDocument(
         conf.appwriteDatabaseId,

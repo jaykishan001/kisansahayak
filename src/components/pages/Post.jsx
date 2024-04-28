@@ -64,9 +64,13 @@ function Post() {
         )}
       </div>
       <div className="w-full mb-6">
-        <h1 className="text-2xl font-bold">{post.title}</h1>
+        <h1 className="text-2xl font-bold">{post.product}</h1>
       </div>
-      <div className="browser-css">{parse(post.content)}</div>
+      <div className="browser-css">{post.category}</div>
+      <div className="browser-css">{post.price}</div>
+      <div className="browser-css">{post.quantity}</div>
+      <div className="browser-css">{post.bought}</div>
+      <div className="browser-css">{post.expiry}</div>
     </div>
   ) : null;
 }
