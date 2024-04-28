@@ -60,6 +60,7 @@ class AuthService {
       console.log("Appwrite serive :: getCurrentUser :: error", error);
     }
 
+<<<<<<< HEAD
     return null;
   }
   async signUpWithGoogle() {
@@ -71,6 +72,60 @@ class AuthService {
       );
     } catch (error) {
       console.log("appwrite error while google signup", error);
+=======
+    // signup service or create Account
+
+    async createAccount({email, password, name}) {
+        try {
+           const user = await this.account.create(ID.unique(), email, password, name)
+            if(user) {
+                return this.login({email, password})
+            }
+        } catch (error) {
+            throw error;
+        }
+    }
+    // login service 
+    
+    async login ({email, password}) {
+        try {
+           return  await this.account.createEmailSession(email, password)
+        } catch (error) {
+            throw error
+        }
+    }
+    
+    // logout service
+
+    async logout() {
+        try {
+           return  await this.account.deleteSessions()
+        } catch (error) {
+            console.log("appwrite error while logout :: ", error)
+        }
+    }
+
+    // getCurrentUser Data
+
+    async getCurrentUser() {
+        try {
+            return await this.account.get()
+        } catch (error) {
+            console.log("appwrite error while fetching userData", error);
+        }
+    }
+    async signUpWithGoogle() {
+        try {
+            return this.account.createOAuth2Session('google',
+            "http://localhost:5173/",
+            "http://localhost:5173/home"    
+        )
+
+        } catch (error) {
+            console.log("appwrite error while google signup", error)
+        }
+    
+>>>>>>> e8ccd28 (selection)
     }
   }
 }

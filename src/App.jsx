@@ -5,8 +5,17 @@ import authService from "./appwrite/auth";
 import { useDispatch } from "react-redux";
 import "./App.css";
 import { login } from "./store/authSlice";
+<<<<<<< HEAD
 import { Outlet } from "react-router-dom";
 // import { Outlet } from 'react-router-dom'
+=======
+import FarmingSeason from "./components/FarmingSeason";
+// import WeatherComp from "./components/Weathercomp";
+// import { Outlet } from "react-router-dom";
+
+
+
+>>>>>>> e8ccd28 (selection)
 
 function App() {
   const [loader, setLoader] = useState(true);
@@ -30,7 +39,8 @@ function App() {
     <div className="">
       <Header />
 
-      <main>{<Outlet />}</main>
+      {/* <main>{<Outlet />}</main> */}
+      <Season />
 
       <Footer />
     </div>
