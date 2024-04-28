@@ -30,7 +30,7 @@ function App() {
     <div className="">
       <Header />
 
-      {/* <main>{<Outlet />}</main> */}
+      <main>{<Outlet />}</main>
       <Season />
 
       <Footer />
