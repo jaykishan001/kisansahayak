@@ -39,8 +39,8 @@ function Header() {
   ];
 
   return (
-    <header className="h-18  w-full bg-[#333333] text-white font-bold">
-      <nav className="flex justify-between ml-4 mr-4 items-center py-4 ">
+    <header className="h-18  w-full bg-[#333333] text-white text-xl font-thin">
+      <nav className="flex justify-between ml-4 mr-4 items-center py-5 ">
         <div>Kishan Sahayak</div>
         <ul className="flex space-x-8">
           {navItems.map((item) =>

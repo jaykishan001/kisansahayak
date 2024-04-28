@@ -1,8 +1,12 @@
 import React from 'react'
+import WeatherComp from '../Weathercomp'
 
 function About() {
   return (
-    <div className='h-[91vh] bg-blue-300 w-full'>About</div>
+    <div className='h-[91vh] bg-[#FEF7E1] w-full'>About
+    
+    <WeatherComp />
+    </div>
   )
 }
 
