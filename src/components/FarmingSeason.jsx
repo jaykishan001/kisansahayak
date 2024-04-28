@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const FarmingSeason = () => {
+const FarmingSeason = ({options}) => {
   const [selectedState, setSelectedState] = useState(null);
 
   const handleStateChange = (event) => {
@@ -10,8 +10,8 @@ const FarmingSeason = () => {
   };
 
   return (
-    <div>
-      <h2>Select a State</h2>
+    <div className="bg-pink-200">
+      <h2 className="font-thin text-2xl">Select a State</h2>
       <select onChange={handleStateChange}>
         <option value="">Select a State</option>
         {options.map((stateObj, index) =>

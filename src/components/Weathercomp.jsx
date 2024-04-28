@@ -56,8 +56,8 @@ function WeatherComp() {
   }
 
   return (
-    <div>
-      <h2>
+    <div className="bg-white w-58 rounded-lg mx-10 p-8 items-center text-center"> 
+      <h2 className="">
         Weather in {weatherData.location.name}, {weatherData.location.country}
       </h2>
       <p>Temperature: {weatherData.current.temp_c}°C</p>
