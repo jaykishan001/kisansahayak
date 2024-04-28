@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import service from "../../appwrite/config";
-import parse from "html-react-parser";
+
 
 function Post() {
   const [post, setPost] = useState(null);
