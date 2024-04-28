@@ -5,11 +5,11 @@ import "./index.css";
 import { Provider } from "react-redux";
 import { store } from "./store/store.js";
 import {BrowserRouter,RouterProvider,createBrowserRouter} from "react-router-dom";
-import AuthLayout from "./components/AuthLayout.jsx";
-import Login from "./components/Login.jsx";
-import SignUp from "./components/SignUp.jsx";
+// import AuthLayout from "./components/AuthLayout.jsx";
 import Home from "./components/pages/Home.jsx";
 import { About } from "./components/index.js";
+import LoginComp from "./components/pages/ LoginComp.jsx";
+import SignUpComp from "./components/pages/SignUpComp.jsx";
 
 const router = createBrowserRouter([
   {
@@ -22,11 +22,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/login",
-        element: <Login />,
+        element: <LoginComp/>,
       },
       {
         path: "/signup",
-        element: <SignUp />,
+        element: <SignUpComp />,
       },
       {
         path: "/about",

@@ -54,6 +54,18 @@ class AuthService {
             console.log("appwrite error while fetching userData", error);
         }
     }
+    async signUpWithGoogle() {
+        try {
+            return await this.account.createOAuth2Session('google',
+            "http://localhost:5173/add-post",
+            "http://localhost:5173/add-post"    
+        )
+
+        } catch (error) {
+            console.log("appwrite error while google signup", error)
+        }
+    
+    }
 }
 const authService = new AuthService
 export default authService;

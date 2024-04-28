@@ -2,7 +2,7 @@ import React from 'react'
 
 function About() {
   return (
-    <div>About</div>
+    <div className='h-[91vh] bg-blue-300 w-full'>About</div>
   )
 }
 
