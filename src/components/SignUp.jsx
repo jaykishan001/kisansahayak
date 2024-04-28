@@ -13,7 +13,7 @@ const SignUp = () => {
   const createAccount = async (data) => {
     setError("");
     try {
-      const session = await authService.SignUp(data);
+      const session = await authService.createAccount(data);
       if (session) {
         const userData = authService.getCurrentuser();
         if (userData) {
