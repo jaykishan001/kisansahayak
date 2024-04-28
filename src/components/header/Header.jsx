@@ -42,14 +42,14 @@ function Header() {
   ]
 
   return (
-   <div>
-    <header>
-      <nav className='flex '>
+   
+    <header className='h-18  w-full bg-[#333333] text-white font-bold'>
+      <nav className='flex justify-between ml-4 mr-4 items-center py-4 '>
         <div>Kishan Sahayak</div>
-        <ul className='flex'> 
+        <ul className='flex space-x-8'> 
           {navItems.map((item)=> (
             item.active ?  (
-            <li className='flex' key={item.name}>
+            <li key={item.name}>
               <button 
               onClick={()=> navigate(item.slug)}
               >{item.name}</button>
@@ -63,7 +63,6 @@ function Header() {
         </ul>
       </nav>
     </header>
-   </div>
 )}
 
 export default Header

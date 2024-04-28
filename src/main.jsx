@@ -4,15 +4,12 @@ import App from "./App.jsx";
 import "./index.css";
 import { Provider } from "react-redux";
 import { store } from "./store/store.js";
-import {
-  BrowserRouter,
-  RouterProvider,
-  createBrowserRouter,
-} from "react-router-dom";
+import {BrowserRouter,RouterProvider,createBrowserRouter} from "react-router-dom";
 import AuthLayout from "./components/AuthLayout.jsx";
 import Login from "./components/Login.jsx";
 import SignUp from "./components/SignUp.jsx";
 import Home from "./components/pages/Home.jsx";
+import { About } from "./components/index.js";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +28,10 @@ const router = createBrowserRouter([
         path: "/signup",
         element: <SignUp />,
       },
+      {
+        path: "/about",
+        element: <About />
+      }
     ],
   },
 ]);
