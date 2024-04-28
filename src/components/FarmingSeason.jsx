@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-
-const FarmingSeason = ({ options }) => {
+const FarmingSeason = () => {
   const [selectedState, setSelectedState] = useState(null);
 
   const handleStateChange = (event) => {
     const stateName = event.target.value;
-    const stateInfo = options.find(state => state.hasOwnProperty(stateName));
+    const stateInfo = options.find((state) => state.hasOwnProperty(stateName));
     setSelectedState(stateInfo ? stateInfo[stateName] : null);
   };
 
@@ -15,11 +14,13 @@ const FarmingSeason = ({ options }) => {
       <h2>Select a State</h2>
       <select onChange={handleStateChange}>
         <option value="">Select a State</option>
-        {options.map((stateObj, index) => (
+        {options.map((stateObj, index) =>
           Object.keys(stateObj).map((state, index) => (
-            <option key={index} value={state}>{state}</option>
+            <option key={index} value={state}>
+              {state}
+            </option>
           ))
-        ))}
+        )}
       </select>
       {selectedState && (
         <div>
@@ -27,7 +28,8 @@ const FarmingSeason = ({ options }) => {
           <ul>
             {Object.entries(selectedState).map(([key, value]) => (
               <li key={key}>
-                <strong>{key}:</strong> {Array.isArray(value) ? value.join(', ') : value}
+                <strong>{key}:</strong>{" "}
+                {Array.isArray(value) ? value.join(", ") : value}
               </li>
             ))}
           </ul>
