@@ -17,6 +17,7 @@ class Service {
   // create Card
 
   async createCard({
+    product,
     category,
     status,
     slug,
@@ -46,7 +47,6 @@ class Service {
       console.log("appwrite error create card::", error);
     }
   }
-
   //update card
 
   async updateCard(

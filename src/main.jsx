@@ -4,12 +4,18 @@ import App from "./App.jsx";
 import "./index.css";
 import { Provider } from "react-redux";
 import { store } from "./store/store.js";
-import {BrowserRouter,RouterProvider,createBrowserRouter} from "react-router-dom";
+import {
+  BrowserRouter,
+  RouterProvider,
+  createBrowserRouter,
+} from "react-router-dom";
 // import AuthLayout from "./components/AuthLayout.jsx";
 import Home from "./components/pages/Home.jsx";
 import { About } from "./components/index.js";
 import LoginComp from "./components/pages/ LoginComp.jsx";
 import SignUpComp from "./components/pages/SignUpComp.jsx";
+import Postform from "./components/Postform.jsx";
+import Post from "./components/pages/Post.jsx";
 
 const router = createBrowserRouter([
   {
@@ -22,7 +28,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/login",
-        element: <LoginComp/>,
+        element: <LoginComp />,
       },
       {
         path: "/signup",
@@ -30,8 +36,16 @@ const router = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <About />
-      }
+        element: <About />,
+      },
+      {
+        path: "/post:slug",
+        element: <Post />,
+      },
+      {
+        path: "/postform",
+        element: <Postform />,
+      },
     ],
   },
 ]);

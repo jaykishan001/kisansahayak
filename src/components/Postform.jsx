@@ -1,16 +1,18 @@
-import React, { useEffect, useState } from "react";
-import Input from "./Input";
+import React, { useCallback, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import Input from "./Input";
+
 import service from "../appwrite/config";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-function Postform({ card }) {
+function Postform({ post }) {
   const [previewUrl, setPreviewUrl] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const url = await service.getFilePreview(card?.featuredImage);
+        const url = await service.getFilePreview(post?.featuredImage);
         setPreviewUrl(url);
       } catch (error) {
         console.error("Error fetching file preview:", error);
@@ -18,38 +20,93 @@ function Postform({ card }) {
     };
 
     fetchData();
-  }, [card?.featuredImage]);
-  const user = useSelector((state) => state.auth.userData);
+  }, [post?.featuredImage]);
 
   const { register, handleSubmit, control, watch, setValue, getValues } =
     useForm({
       defaultValues: {
-        product: card?.product || "",
-        status: card?.status || "active",
-        categrory: card?.category || "",
-        quantity: card?.quantity || "",
-        bought: card?.bought || "",
-        expiry: card?.expiry || "",
+        product: post?.$id || "",
+        status: post?.status || "active",
+        category: post?.category || "",
+        quantity: post?.quantity || "",
+        bought: post?.bought || "",
+        expiry: post?.expiry || "",
       },
     });
+  const navigate = useNavigate();
+  const user = useSelector((state) => state.auth.userData);
+
   const Submit = async (data) => {
-    if (card) {
+    if (post) {
       const file = data.image[0]
         ? await service.uploadFile(data.image[0])
         : null;
       if (file) {
         service.deleteFile(post.featuredImage);
       }
+
+      const dbPost = await service.updateCard(post.$id, {
+        ...data,
+        featuredImage: file ? file.$id : post.featuredImage,
+      });
+      if (dbPost) {
+        navigate(`/post/${dbPost.$id}`);
+      }
+    } else {
+      const file = data.image[0]
+        ? await service.uploadFile(data.image[0])
+        : null;
+      if (file) {
+        const fileId = file.$id;
+        data.featuredImage = fileId;
+        const dbPost = await service.createCard({ ...data, userId: user?.$id });
+        if (dbPost) {
+          navigate(`/post/${dbPost.$id}`);
+        }
+      }
     }
   };
+  const slugTransform = useCallback((value) => {
+    if (value && typeof value === "string")
+      return value
+        .trim()
+        .toLowerCase()
+        .replace(/[^a-zA-Z\d\s]+/g, "-")
+        .replace(/\s/g, "-");
+
+    return "";
+  }, []);
+  useEffect(() => {
+    const subscription = watch((value, { name }) => {
+      if (name === "product") {
+        setValue("slug", slugTransform(value.product), {
+          shouldValidate: true,
+        });
+      }
+    });
+
+    return () => subscription.unsubscribe();
+  }, [watch, slugTransform, setValue]);
+
   return (
-    <div>
-      <form onSubmit={handleSubmit(Submit)}>
+    <form onSubmit={handleSubmit(Submit)} className="flex flex-wrap">
+      <div className=" px-2">
         <Input
           label="Product Name"
           placeholder="apples"
           className="mb-4"
           {...register("product", { required: true })}
+        />
+        <Input
+          label="Slug :"
+          placeholder="Slug"
+          className="mb-4"
+          {...register("slug", { required: true })}
+          onInput={(e) => {
+            setValue("slug", slugTransform(e.currentTarget.value), {
+              shouldValidate: true,
+            });
+          }}
         />
         <Input
           label="Category"
@@ -61,7 +118,7 @@ function Postform({ card }) {
           type="file"
           label="Image"
           accept="image/png, image/jpg, image/jpeg, image/gif"
-          {...register("image", { required: !card })}
+          {...register("image", { required: !post })}
         />
         <Input
           label="Price"
@@ -90,10 +147,10 @@ function Postform({ card }) {
           {...register("expiry", { required: false })}
         />
         <button type="submit" className="w-full">
-          {card ? "Update" : "Submit"}
+          {post ? "Update" : "Submit"}
         </button>
-      </form>
-    </div>
+      </div>
+    </form>
   );
 }
 

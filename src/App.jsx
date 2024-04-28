@@ -6,6 +6,9 @@ import { useDispatch } from "react-redux";
 import "./App.css";
 import { login } from "./store/authSlice";
 import Season from "./components/pages/Season";
+import { Outlet } from "react-router-dom";
+import Postform from "./components/Postform";
+import Post from "./components/pages/Post";
 
 function App() {
   const [loader, setLoader] = useState(true);
@@ -29,8 +32,7 @@ function App() {
     <div className="">
       <Header />
 
-      {/* <main>{<Outlet />}</main> */}
-      <Season />
+      <main>{<Post />}</main>
 
       <Footer />
     </div>
