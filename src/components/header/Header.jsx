@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 function Header() {
   const navigate = useNavigate();
   const authStatus = useSelector((state) => state.auth.active);
+
   console.log(authStatus);
 
   const navItems = [
@@ -39,7 +40,7 @@ function Header() {
       name: "Add Item",
       slug: "/postform",
       active: authStatus,
-    }
+    },
   ];
 
   return (

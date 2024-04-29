@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import service from "../../appwrite/config";
 
-
 function Post() {
   const [post, setPost] = useState(null);
   const { slug } = useParams();
