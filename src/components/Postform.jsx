@@ -8,6 +8,8 @@ import { useNavigate } from "react-router-dom";
 
 function Postform({ post }) {
   const [previewUrl, setPreviewUrl] = useState(null);
+  const [loading, setLoading] = useState(false);
+  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,6 +39,7 @@ function Postform({ post }) {
   const user = useSelector((state) => state.auth.userData);
 
   const Submit = async (data) => {
+    setLoading(true);
     if (post) {
       const file = data.image[0]
         ? await service.uploadFile(data.image[0])
@@ -89,12 +92,12 @@ function Postform({ post }) {
   }, [watch, slugTransform, setValue]);
 
   return (
-    <form onSubmit={handleSubmit(Submit)} className="flex flex-wrap">
+    <form onSubmit={handleSubmit(Submit)} className="flex flex-wrap pl-[35%] pt-10 bg-[#FEF7E1]">
       <div className=" px-2">
         <Input
           label="Product Name"
-          placeholder="apples"
-          className="mb-4"
+          placeholder="product name"
+          className="mb-4 "
           {...register("product", { required: true })}
         />
         <Input
@@ -128,7 +131,7 @@ function Postform({ post }) {
         />
         <Input
           label="Total Quantity"
-          placeholder="apples"
+          placeholder="Quantity"
           className="mb-4"
           {...register("quantity", { required: true })}
         />
@@ -146,7 +149,10 @@ function Postform({ post }) {
           className="mb-4"
           {...register("expiry", { required: false })}
         />
-        <button type="submit" className="w-full">
+
+        {loading && <p>submitting....</p>}
+
+        <button type="submit" className="w-full border border-black p-2 rounded-lg bg-orange-500">
           {post ? "Update" : "Submit"}
         </button>
       </div>
