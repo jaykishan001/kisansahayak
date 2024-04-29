@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import service from "../appwrite/config";
+import service from "../../appwrite/config";
 import { useSelector } from "react-redux";
-import PostCard from "./PostCard";
+import PostCard from "../PostCard";
 
-const Allpost = () => {
+const Buy = () => {
   const [posts, setPosts] = useState([]);
   const user = useSelector((state) => state.auth.userData);
   const [loading, setLoading] = useState(true);
@@ -19,7 +19,7 @@ const Allpost = () => {
         setLoading(false);
         if (posts) {
           const filteredPosts = posts.documents.filter(
-            (post) => post.userId === user.$id
+            (post) => post.userId !== user.$id // Filter out posts where userId is not equal to the current user's ID
           );
           setPosts(filteredPosts);
         }
@@ -41,7 +41,7 @@ const Allpost = () => {
       <div className="flex flex-wrap">
         {posts.map((post) => (
           <div key={post.$id} className="p-2 w-1/4">
-            <PostCard {...post} showBuyButton={false} />
+            <PostCard {...post} />
           </div>
         ))}
       </div>
@@ -49,4 +49,4 @@ const Allpost = () => {
   );
 };
 
-export default Allpost;
+export default Buy;

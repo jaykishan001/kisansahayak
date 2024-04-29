@@ -47,11 +47,10 @@ function Header() {
       active: authStatus,
     },
     {
-      name: "Buy product",
-      slug: "/buyproduct",
-      active: authStatus
-    }
-    
+      name: "Buy",
+      slug: "/buy",
+      active: authStatus,
+    },
   ];
 
   return (

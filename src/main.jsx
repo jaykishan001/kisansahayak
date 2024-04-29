@@ -16,8 +16,9 @@ import LoginComp from "./components/pages/ LoginComp.jsx";
 import SignUpComp from "./components/pages/SignUpComp.jsx";
 import Postform from "./components/Postform.jsx";
 import Post from "./components/pages/Post.jsx";
-import PostCard from "./components/PostCard.jsx";
+
 import Allpost from "./components/Allpost.jsx";
+import Buy from "./components/pages/Buy.jsx";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
       },
       { path: "/allpost", element: <Allpost /> },
       ,
+      {
+        path: "/buy",
+        element: <Buy />,
+      },
     ],
   },
 ]);
