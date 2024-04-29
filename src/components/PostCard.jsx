@@ -37,11 +37,8 @@ function PostCard({
   const isCurrentUserAuthor = currentUser && currentUser.$id === userId;
 
   return (
-    <Link
-      to={`/post/${$id}`}
-      className="block w-full max-w-sm mx-auto rounded-lg overflow-hidden shadow-md hover:shadow-lg bg-white mb-6"
-    >
-      <div className="p-4">
+    
+      <div className="p-4 border border-black ">
         <div className="flex items-center mb-4">
           <img
             src={service.getFilePreview(featuredImage)}
@@ -68,9 +65,12 @@ function PostCard({
               Buy Now
             </button>
           )}
+          <Link to={`/post/${$id}`}>
+        <button className="w-full bg-gray-200 p-2 rounded-md">Edit</button>
+       </Link>
         </div>
       </div>
-    </Link>
+    
   );
 }
 
