@@ -1,6 +1,8 @@
 import React from "react";
 import service from "../appwrite/config";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import {addToCart} from "../store/cartSlice"
 
 function PostCard({
   $id,
@@ -12,6 +14,12 @@ function PostCard({
   quantity,
   price,
 }) {
+
+  const dispatch = useDispatch();
+
+  const handleSubmit = () => {
+    dispatch(addToCart())
+  }
   return (
     <Link
       to={`/post/${$id}`}
@@ -36,7 +44,7 @@ function PostCard({
             <p className="text-gray-600">Bought: {bought}</p>
             <p className="text-gray-800 font-semibold">Price: ${price}</p>
           </div>
-          <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded focus:outline-none">
+          <button onClick={handleSubmit} className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded focus:outline-none">
             Buy Now
           </button>
         </div>
