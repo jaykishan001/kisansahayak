@@ -23,7 +23,7 @@ function Header() {
     },
     {
       name: "Inventory",
-      slug: "/inventory",
+      slug: "/allpost",
       active: authStatus,
     },
     {
@@ -41,6 +41,12 @@ function Header() {
       slug: "/postform",
       active: authStatus,
     },
+    {
+      name: "Cart",
+      slug: "/cart",
+      active: authStatus,
+    }
+    
   ];
 
   return (

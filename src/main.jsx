@@ -11,7 +11,7 @@ import {
 } from "react-router-dom";
 // import AuthLayout from "./components/AuthLayout.jsx";
 import Home from "./components/pages/Home.jsx";
-import { About } from "./components/index.js";
+import { About, AuthLayout } from "./components/index.js";
 import LoginComp from "./components/pages/ LoginComp.jsx";
 import SignUpComp from "./components/pages/SignUpComp.jsx";
 import Postform from "./components/Postform.jsx";
@@ -30,11 +30,21 @@ const router = createBrowserRouter([
       },
       {
         path: "/login",
-        element: <LoginComp />,
+        element: (
+          <AuthLayout  authentication={false}>
+            <LoginComp />,
+          </AuthLayout>
+        )
+        
       },
       {
         path: "/signup",
-        element: <SignUpComp />,
+        element: (
+          <AuthLayout  authentication={false}>
+            <SignUpComp />,
+          </AuthLayout>
+        ) 
+        
       },
       {
         path: "/about",
@@ -42,7 +52,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/postform",
-        element: <Postform />,
+        element: (
+          <AuthLayout authentication={true} >
+            <Postform />,
+          </AuthLayout>
+        ) 
       },
       {
         path: "/post/:slug",
