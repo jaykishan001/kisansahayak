@@ -29,6 +29,7 @@ function PostCard({
         <div>
           <p>Expiry: {expirty}</p>
           <p>Bought: {bought}</p>
+          {hllo}
         </div>
       </div>
     </div>
