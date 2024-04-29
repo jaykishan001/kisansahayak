@@ -50,7 +50,7 @@ function Post() {
       <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2">
         <img
           src={previewUrl}
-          alt={post.title}
+          alt={post.product}
           className="rounded-xl w-[500px]"
         />
 

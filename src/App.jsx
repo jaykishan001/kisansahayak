@@ -32,12 +32,9 @@ function App() {
   return !loader ? (
     <div className="">
       <Header />
-
       <main>{<Outlet />}</main>
       <main>{<Post />}</main>
-      <main>{<Outlet />}</main>
       <Season />
-
       <Footer />
     </div>
   ) : null;

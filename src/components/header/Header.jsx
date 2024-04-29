@@ -1,5 +1,4 @@
 import React from "react";
-import { act } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import LogoutBtn from "./LogoutBtn";
@@ -36,6 +35,11 @@ function Header() {
       slug: "/signup",
       active: !authStatus,
     },
+    {
+      name: "Add Item",
+      slug: "/postform",
+      active: authStatus,
+    }
   ];
 
   return (

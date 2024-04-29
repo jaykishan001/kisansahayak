@@ -111,8 +111,8 @@ class AuthService {
     try {
       return this.account.createOAuth2Session(
         "google",
-        "http://localhost:5173/",
-        "http://localhost:5173/home"
+        "http://localhost:5173/postform",
+        "http://localhost:5173/"
       );
     } catch (error) {
       console.log("appwrite error while google signup", error);
