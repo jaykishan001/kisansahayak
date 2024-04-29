@@ -45,8 +45,12 @@ function Header() {
       name: "Cart",
       slug: "/cart",
       active: authStatus,
-    }
-    
+    },
+    {
+      name: "Buy",
+      slug: "/buy",
+      active: authStatus,
+    },
   ];
 
   return (
