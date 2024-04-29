@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from "react";
 import service from "../appwrite/config";
-
 import { useSelector } from "react-redux";
 import PostCard from "./PostCard";
 
 const Allpost = () => {
   const [posts, setPosts] = useState([]);
-  const [Filtered, setFiltered] = useState([]);
-  const user = useSelector((state) => state.auth.userData);
-
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const user = useSelector((state) => state.auth.userData);
 
   useEffect(() => {
     setLoading(true);
@@ -21,10 +18,7 @@ const Allpost = () => {
       .then((posts) => {
         setLoading(false);
         if (posts) {
-          const filteredPosts = posts.documents.filter(
-            (post) => post.userId === user.$id
-          );
-          setPosts(filteredPosts);
+          setPosts(posts.documents);
         }
       })
       .catch((error) => {
@@ -32,11 +26,14 @@ const Allpost = () => {
         setError("An error occurred while fetching posts.");
         console.error(error);
       });
-  }, [user]);
-  console.log(posts);
+  }, []);
 
   if (loading) {
     return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
   }
 
   return (

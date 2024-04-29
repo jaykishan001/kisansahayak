@@ -1,8 +1,8 @@
 import React from "react";
 import service from "../appwrite/config";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import {addToCart} from "../store/cartSlice"
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../store/cartSlice";
 
 function PostCard({
   $id,
@@ -13,13 +13,34 @@ function PostCard({
   cartegory,
   quantity,
   price,
+  userId, // Add userId as a prop
 }) {
-
   const dispatch = useDispatch();
+  const currentUser = useSelector((state) => state.auth.userData);
 
   const handleSubmit = () => {
+<<<<<<< HEAD
     dispatch(addToCart({$id, product, price, quantity, featuredImage}))
   }
+=======
+    dispatch(
+      addToCart({
+        $id,
+        product,
+        price,
+        quantity,
+        cartegory,
+        expirty,
+        bought,
+        featuredImage,
+      })
+    );
+  };
+
+  // Check if the current user is the author of the post
+  const isCurrentUserAuthor = currentUser && currentUser.$id === userId;
+
+>>>>>>> 64fa96ed4eec4c8867c39e6493a7a70258922e4b
   return (
     <Link
       to={`/post/${$id}`}
@@ -44,9 +65,14 @@ function PostCard({
             <p className="text-gray-600">Bought: {bought}</p>
             <p className="text-gray-800 font-semibold">Price: ${price}</p>
           </div>
-          <button onClick={handleSubmit} className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded focus:outline-none">
-            Buy Now
-          </button>
+          {!isCurrentUserAuthor && ( // Render the button only if the current user is not the author
+            <button
+              onClick={handleSubmit}
+              className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded focus:outline-none"
+            >
+              Buy Now
+            </button>
+          )}
         </div>
       </div>
     </Link>
