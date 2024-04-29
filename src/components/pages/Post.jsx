@@ -30,6 +30,7 @@ function Post() {
     });
   };
   const [previewUrl, setPreviewUrl] = useState(null);
+  console.log(post);
 
   useEffect(() => {
     const fetchData = async () => {

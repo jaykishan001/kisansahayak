@@ -33,8 +33,7 @@ function App() {
     <div className="">
       <Header />
       <main>{<Outlet />}</main>
-      <main>{<Post />}</main>
-      <Season />
+
       <Footer />
     </div>
   ) : null;
