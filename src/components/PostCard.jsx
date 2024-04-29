@@ -7,7 +7,7 @@ import { addToCart } from "../store/cartSlice";
 function PostCard({
   $id,
   product,
-  expirty,
+  expiry,
   bought,
   featuredImage,
   cartegory,
@@ -53,7 +53,7 @@ function PostCard({
         </div>
         <div className="flex justify-between items-center">
           <div>
-            <p className="text-gray-600">Expiry: {expirty}</p>
+            <p className="text-gray-600">Expiry: {expiry}</p>
             <p className="text-gray-600">Bought: {bought}</p>
             <p className="text-gray-800 font-semibold">Price: ${price}</p>
           </div>
