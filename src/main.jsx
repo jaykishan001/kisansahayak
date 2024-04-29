@@ -49,6 +49,7 @@ const router = createBrowserRouter([
         element: <Post />,
       },
       { path: "/allpost", element: <Allpost /> },
+      ,
     ],
   },
 ]);
