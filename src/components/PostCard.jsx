@@ -21,14 +21,14 @@ function PostCard({
   const handleSubmit = () => {
     dispatch(
       addToCart({
-        $id,
-        product,
-        price,
-        quantity,
-        cartegory,
-        expirty,
-        bought,
-        featuredImage,
+      $id,
+      product,
+      price,
+      quantity,
+      cartegory,
+      expiry,
+      bought,
+      featuredImage,
       })
     );
   };

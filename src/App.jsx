@@ -33,7 +33,6 @@ function App() {
     <div className="">
       <Header />
       <main>{<Outlet />}</main>
-
       <Footer />
     </div>
   ) : null;

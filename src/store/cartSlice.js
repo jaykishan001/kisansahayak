@@ -9,12 +9,13 @@ export const cartSlice = createSlice({
     reducers: {
         addToCart: (state, action) => {
             state.items = [...state.items, action.payload]
-        },
+          },
+          
         removeFromCart: (state, action) => {
             state.items = state.items.filter((item) => item.id !== action.payload.id)
         },
         updateQuantity: (state, action) => {
-            state.item = state.items.map((item) => {
+            state.items = state.items.map((item) => {
                 if (item.id === action.payload.id) {
                     return {
                         ...item,

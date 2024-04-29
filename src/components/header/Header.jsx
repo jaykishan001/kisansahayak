@@ -51,6 +51,11 @@ function Header() {
       slug: "/buy",
       active: authStatus,
     },
+    {
+      name: "Chat",
+      slug: "/chat",
+      active: authStatus,
+    }
   ];
 
   return (
