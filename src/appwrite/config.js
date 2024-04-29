@@ -26,6 +26,7 @@ class Service {
     quantity,
     bought,
     expiry,
+    price,
   }) {
     try {
       return await this.database.createDocument(
@@ -41,6 +42,7 @@ class Service {
           userId,
           category,
           quantity,
+          price,
         }
       );
     } catch (error) {

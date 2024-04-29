@@ -30,7 +30,6 @@ function Post() {
     });
   };
   const [previewUrl, setPreviewUrl] = useState(null);
-  console.log(post);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -42,7 +41,9 @@ function Post() {
       }
     };
 
-    fetchData();
+    if (post) {
+      fetchData();
+    }
   }, [post?.featuredImage]);
 
   return post ? (
@@ -51,26 +52,33 @@ function Post() {
         <img
           src={previewUrl}
           alt={post.product}
-          className="rounded-xl w-[500px]"
+          className="rounded-xl w-[500px] h-auto"
         />
 
         {isAuthor && (
           <div className="absolute right-6 top-6">
             <Link to={`/edit-post/${post.$id}`}>
-              <button className="mr-3">Edit</button>
+              <button className="mr-3 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg focus:outline-none">
+                Edit
+              </button>
             </Link>
-            <button onClick={deletePost}>Delete</button>
+            <button
+              onClick={deletePost}
+              className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg focus:outline-none"
+            >
+              Delete
+            </button>
           </div>
         )}
       </div>
       <div className="w-full mb-6">
-        <h1 className="text-2xl font-bold">{post.product}</h1>
+        <h1 className="text-3xl font-bold">{post.product}</h1>
       </div>
-      <div className="browser-css">{post.category}</div>
-      <div className="browser-css">{post.price}</div>
-      <div className="browser-css">{post.quantity}</div>
-      <div className="browser-css">{post.bought}</div>
-      <div className="browser-css">{post.expiry}</div>
+      <div className="text-gray-600 mb-4">Category: {post.category}</div>
+      <div className="text-gray-600 mb-4">Price: ${post.price}</div>
+      <div className="text-gray-600 mb-4">Quantity: {post.quantity}</div>
+      <div className="text-gray-600 mb-4">Bought: {post.bought}</div>
+      <div className="text-gray-600 mb-4">Expiry: {post.expiry}</div>
     </div>
   ) : null;
 }

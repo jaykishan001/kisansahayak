@@ -10,28 +10,35 @@ function PostCard({
   featuredImage,
   cartegory,
   quantity,
+  price,
 }) {
-  console.log(featuredImage);
   return (
-    <Link to={`/post/${$id}`}>
-      <div>
-        <div className="flex justify-between">
-          <div className="flex">
-            <img
-              src={service.getFilePreview(featuredImage)}
-              alt="product"
-              className="w-20 h-20"
-            />
-            <div className="ml-4">
-              <h2>{product}</h2>
-              <p>{cartegory}</p>
-              <p>{quantity}</p>
-            </div>
-          </div>
+    <Link
+      to={`/post/${$id}`}
+      className="block w-full max-w-sm mx-auto rounded-lg overflow-hidden shadow-md hover:shadow-lg bg-white mb-6"
+    >
+      <div className="p-4">
+        <div className="flex items-center mb-4">
+          <img
+            src={service.getFilePreview(featuredImage)}
+            alt="product"
+            className="w-24 h-24 object-cover rounded-lg mr-4"
+          />
           <div>
-            <p>Expiry: {expirty}</p>
-            <p>Bought: {bought}</p>
+            <h2 className="text-lg font-semibold">{product}</h2>
+            <p className="text-gray-600">{cartegory}</p>
+            <p className="text-gray-600">Quantity: {quantity}</p>
           </div>
+        </div>
+        <div className="flex justify-between items-center">
+          <div>
+            <p className="text-gray-600">Expiry: {expirty}</p>
+            <p className="text-gray-600">Bought: {bought}</p>
+            <p className="text-gray-800 font-semibold">Price: ${price}</p>
+          </div>
+          <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded focus:outline-none">
+            Buy Now
+          </button>
         </div>
       </div>
     </Link>

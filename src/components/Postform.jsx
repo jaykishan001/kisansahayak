@@ -9,7 +9,6 @@ import { useNavigate } from "react-router-dom";
 function Postform({ post }) {
   const [previewUrl, setPreviewUrl] = useState(null);
   const [loading, setLoading] = useState(false);
-  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -92,7 +91,10 @@ function Postform({ post }) {
   }, [watch, slugTransform, setValue]);
 
   return (
-    <form onSubmit={handleSubmit(Submit)} className="flex flex-wrap pl-[35%] pt-10 bg-[#FEF7E1]">
+    <form
+      onSubmit={handleSubmit(Submit)}
+      className="flex flex-wrap pl-[35%] pt-10 bg-[#FEF7E1]"
+    >
       <div className=" px-2">
         <Input
           label="Product Name"
@@ -152,7 +154,10 @@ function Postform({ post }) {
 
         {loading && <p>submitting....</p>}
 
-        <button type="submit" className="w-full border border-black p-2 rounded-lg bg-orange-500">
+        <button
+          type="submit"
+          className="w-full border border-black p-2 rounded-lg bg-orange-500"
+        >
           {post ? "Update" : "Submit"}
         </button>
       </div>
