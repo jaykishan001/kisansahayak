@@ -19,10 +19,6 @@ function PostCard({
   const currentUser = useSelector((state) => state.auth.userData);
 
   const handleSubmit = () => {
-<<<<<<< HEAD
-    dispatch(addToCart({$id, product, price, quantity, featuredImage}))
-  }
-=======
     dispatch(
       addToCart({
         $id,
@@ -40,7 +36,6 @@ function PostCard({
   // Check if the current user is the author of the post
   const isCurrentUserAuthor = currentUser && currentUser.$id === userId;
 
->>>>>>> 64fa96ed4eec4c8867c39e6493a7a70258922e4b
   return (
     <Link
       to={`/post/${$id}`}
