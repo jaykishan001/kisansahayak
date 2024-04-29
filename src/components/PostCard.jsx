@@ -18,7 +18,7 @@ function PostCard({
   const dispatch = useDispatch();
 
   const handleSubmit = () => {
-    dispatch(addToCart({$id, product, price, quantity, cartegory, expirty, bought, featuredImage}))
+    dispatch(addToCart({$id, product, price, quantity, featuredImage}))
   }
   return (
     <Link
