@@ -10,7 +10,7 @@ const FarmingSeason = ({options}) => {
   };
 
   return (
-    <div className="bg-pink-200">
+    <div className="bg-pink-200 mx-10 w-58 py-5">
       <h2 className="font-thin text-2xl">Select a State</h2>
       <select onChange={handleStateChange}>
         <option value="">Select a State</option>

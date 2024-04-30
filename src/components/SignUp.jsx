@@ -92,7 +92,7 @@ const SignUp = () => {
             >
               Create Account
             </button>
-            <button onClick={registerWithGoogle}>Sign up by a google</button>
+            <button className="w-8/12 p-2 border border-black rounded-lg bg-blue-200 hover:bg-blue-400" onClick={registerWithGoogle}>Sign up by a google</button>
           </div>
         </form>
       </div>

@@ -1,5 +1,6 @@
 import React from 'react'
 import WeatherComp from '../Weathercomp'
+import Season from './Season'
 
 function About() {
   return (
@@ -10,6 +11,7 @@ function About() {
       Additionally, it should keep track of the resources needed for crafting tools and other farm-related items.
       </p> 
     <WeatherComp />
+    <Season />
     </div>
   )
 }
