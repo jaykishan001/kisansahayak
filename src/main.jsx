@@ -20,6 +20,7 @@ import Post from "./components/pages/Post.jsx";
 import Allpost from "./components/Allpost.jsx";
 import Buy from "./components/pages/Buy.jsx";
 import Chatbot from "./components/Chatbot.jsx";
+import Cart from "./components/Cart.jsx";
 
 const router = createBrowserRouter([
   {
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
       {
         path: "/chat",
         element: <Chatbot />
+      },
+      {
+        path: "/cart",
+        element: <Cart />
       }
 
     ],
